@@ -1,0 +1,23 @@
+{
+  "name": "Gestion",
+  "version": "1.0.0",
+  "description": "Logiciel de gestion de stock",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron main.js",
+    "build": "electron-packager --overwrite --all --icon=icons/Fasticon-Shop-Cart-Shop-cart.ico ./ Gestion de Stock"
+  },
+	"repository": {
+	"type": "git",
+	"url": "test"
+  },
+  "author": "CptH",
+  "license": "MIT",
+  "dependencies": {
+    "nedb": "^1.8.0"
+  },
+  "devDependencies": {
+    "electron": "^1.4.12",
+    "electron-packager": "^8.4.0"
+  }
+}

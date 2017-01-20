@@ -1,0 +1,557 @@
+@font-face {
+    font-family: 'open';
+    src: url('../fonts/open-sans/OpenSans-SemiBold.ttf');
+}
+
+@font-face {
+    font-family: 'alexbrush';
+    src: url('../fonts/alex-brush/AlexBrush-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'tusj';
+    src: url('../fonts/FFF-Tusj/FFF_Tusj.ttf');
+}
+
+@font-face {
+    font-family: 'exo';
+    src: url('../fonts/exo/Exo-Black.otf');
+}
+
+@font-face {
+  font-family: 'Architects Daughter';
+  font-style: normal;
+  font-weight: 400;
+  src: url(../fonts/Architects-Daughter.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+
+/*
+html {
+    height: 100%;
+}
+*/
+
+body ::-webkit-scrollbar {
+	width: 14px;
+	height: 14px;
+	background: linear-gradient(to right, #797e88 , #2c303e);
+    box-shadow: 0 0 0 1px rgb(0, 0, 0);
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+    top: 20px;
+}
+
+body ::-webkit-scrollbar-thumb {
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2) inset, 0 0 8px 2px rgba(7, 7, 10, 1) inset, 0 0 0 .1px rgba(0, 0, 0, 0.5);
+    background-color: #9ea3ad;
+}
+
+body ::-webkit-scrollbar-thumb:hover {
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2) inset, 0 0 8px 2px rgba(7, 7, 10, 1) inset, 0 0 0 .1px rgba(0, 0, 0, 0.5);
+    background-color: #bdcae2;
+}
+
+html, body {
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+#all {
+/*    width: 90%;*/
+    height: 93%;
+    border-radius: 20px;
+    box-shadow: 3px 3px 15px 5px rgba(0, 0, 0, 0.49), 0 0 15px 5px rgba(0, 0, 0, 0.53) inset;
+    border: 10px double black;
+    background-color: #36353b;
+    color: #a0a0a0;
+    margin: 15px 20px 15px 20px;
+    -webkit-app-region: drag;
+
+}
+
+#btnsWin {
+    position: relative;
+    top: 5px;
+    right: 5px;
+    float: right;
+}
+
+#btnsWin button {
+    margin-left: 5px;
+}
+
+ul.tab {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+ul.tab li {
+    display: flex;
+    justify-content: center;
+    background-color: #242424;
+    -webkit-app-region: no-drag;
+}
+
+ul.tab li a {
+    display: inline-block;
+    color: #ccc;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 17px;
+    border: 3px solid #ccc;
+    transition: .5s;
+}
+
+#li1, #li2 {
+    border-right: none;
+}
+
+#li3 {
+    border-left: none;
+}
+
+ul.tab li a:hover {
+    background-color: #4f526c;
+    transition: .5s;
+}
+
+ul.tab li a:focus,
+.active {
+    background-color: #36353b;
+    border-bottom: 1px solid transparent!important;
+    transition: .5s;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    text-shadow: 3px 3px 2px black;
+}
+
+.h1Titre {
+    font-family: tusj;
+    font-size: 50px;
+    margin: 1% 0 1% 0;
+}
+
+.tab,
+#ajSuppr,
+#produits,
+#categories {
+    font-family: open;
+}
+
+#ajSuppr,
+#produits,
+#categories,
+#liste {
+    -webkit-app-region: no-drag;
+    font-family: open;
+    overflow: scroll;
+    height: 84%;
+    box-shadow: 0 0 30px 2px rgba(0, 0, 0, 0.5), 0 0 30px 2px rgba(52, 40, 23, 0.5) inset;
+    border: 5px solid rgb(21, 20, 29);
+    border-radius: 10px;
+    margin: 20px;
+    overflow-x: hidden;
+    padding-bottom: 15px;
+    background: linear-gradient(#59575f , #36353b);
+}
+
+#ajSuppr, #categories {
+    text-align: center;
+}
+
+#divBtnPdf {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#tableau {
+    border-collapse: collapse;
+    width: 95%;
+    margin: auto;
+    border: 2px solid;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.30), 0 0 2px 3px rgba(0, 0, 0, 0.15);
+}
+
+/*
+th {
+    border-radius: 20px;
+    border: 2px solid #555555;
+}
+*/
+
+#tableau th {
+    background: linear-gradient(#313131 , #242424);
+    border-right: 2px solid #36353b;
+    padding: 1% 1% 1% 1%;
+    font-family: exo;
+    font-weight: bolder;
+}
+
+#tableau td {
+    background: linear-gradient(#54525a , #424148);
+    border: 2px solid #36353b;
+    padding: .5% .5% .5% .5%;
+    color: aliceblue;
+    text-shadow: 2px 2px 1px #36353b;
+}
+
+#h1ListeDeCourse {
+    font-family: alexbrush;
+    font-size: 50px;
+}
+
+#listeDeCourse {
+    border-collapse: collapse;
+    width: 95%;
+    color: #cccccc;
+    margin: auto;
+    text-shadow: 1px 1px 1px #131315;
+}
+
+#listeDeCourse td {
+    border-bottom: 2px solid #66666f;
+    border-right-color: rgba(240, 248, 255, 0);
+    border-left-color: rgba(240, 248, 255, 0);
+    font-family: Architects Daughter;
+    font-size: 25px;
+    font-weight: bold;
+    padding: 1% 0 0 0;
+}
+
+#listeDeCourse tr {
+    box-shadow: 0 8px 6px -6px black;
+}
+
+.logocroissantdecroissant {
+    text-decoration: none;
+    /*    margin-left: 10%;*/
+    font-size: 100%;
+    color: #59b9ff;
+    /*    float: right;*/
+}
+
+button:disabled {
+    background-color: #242424;
+    text-decoration: none;
+    border: 1px solid #c4c4c4;
+}
+
+#listeDeCourse tfoot td {
+    padding-top: 3%;
+    font-weight: bolder;
+    font-size: 35px;
+}
+
+#aideCategorie, #aide {
+    color: red;
+}
+
+#listeCategories {
+    list-style: none;
+}
+
+button, input, select {
+    background-color: #343434;
+    color: #a0a0a0;
+    -webkit-app-region: no-drag;
+}
+
+.submit, .btnTab, .btnWin {
+    font-size: 1.2em;
+    border: none;
+    padding: 8px;
+    color: #000000;
+    background: linear-gradient( #727272, #575656);
+    font-family: open;
+    text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba( 0, 0, 0, 0.5), -1px -1px 0 rgba( 255, 255, 255, 0.4);
+    transition: .5s;
+}
+
+#submitListe {
+    text-align: center;
+}
+
+#modifQte {
+    margin: 10px 0;
+    padding: 8px 20px;
+    color: #00d8ff;
+}
+
+#cancelModifQte {
+    display: none;
+    margin: 10px 0;
+    padding: 8px 20px;
+    color: #ff0000;
+}
+
+#validModifQte {
+    display: none;
+    margin: 10px 0;
+    padding: 8px 20px;
+    color: #00ff00;
+}
+
+.btnListe {
+    font-size: 0.5em;
+    border: none;
+    padding: 0 5px;
+    color: #000000;
+    background: linear-gradient( #727272, #575656);
+    font-family: open;
+    text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba( 0, 0, 0, 0.5), -1px -1px 0 rgba( 255, 255, 255, 0.4);
+    transition: .5s;
+}
+
+.submit:hover, .btnTab:hover, .btnWin:hover, .btnListe:hover {
+    color: #555555;
+    background: linear-gradient( #1c1c1c, #333);
+    text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.5);
+    transition: .5s;
+}
+
+.submit:active, .btnTab:active {
+    color: #000;
+    background: linear-gradient( #555, #2C2C2C);
+    box-shadow: 1px 1px 10px 3px #204321 inset, 0 1px 0 rgba( 255, 255, 255, 0.4);
+    transition: .2s;
+}
+
+.btnWin:active, .btnListe:active {
+    color: #000;
+    background: linear-gradient( #555, #2C2C2C);
+    box-shadow: 1px 1px 10px 3px #cb6500 inset, 0 1px 0 rgba( 255, 255, 255, 0.4);
+    transition: .2s;
+}
+
+.inputText {
+    appearance: none;
+    width: 90%;
+    margin: 0 15px;
+    height: 35px;
+    padding: 5px;
+    margin-top: 10px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    background: #d9dded;
+    color: #1d1d1d;
+    font-size: 14px;
+    text-align: center;
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.2), 0 0 20px 5px rgba(69, 69, 69, 0.5) inset;
+}
+
+select {
+    background-color: #d9dded;
+    color: #1d1d1d;
+    border: none;
+    margin-top: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.2), 0 0 20px 5px rgba(69, 69, 69, 0.5) inset;
+}
+
+.check {
+    position: absolute;
+    left: -9999px;
+}
+
+.labCheck {
+    height: 30px;
+    width: 30px;
+    display: block;
+    border-radius: 50%;
+    margin: -5px auto 0 auto;
+    background: radial-gradient( rgba(162, 0, 0, 0.6), rgba(38, 0, 0, 0.6));
+    box-shadow: 0 0 0 3px rgb(29, 29, 29), 0 0 0 3px #c6c6c6 inset;
+    cursor: pointer;
+    transition: .2s;
+    -webkit-app-region: no-drag;
+}
+
+.labCheck:hover {
+    background: radial-gradient( rgba(162, 69, 0, 0.6), rgba(38, 18, 0, 0.6));
+    background-color: #47964d;
+}
+
+.check:checked + .labCheck {
+    background: radial-gradient( rgba(0, 162, 12, 0.6), rgba(4, 38, 0, 1));
+    background-color: #00ff13;
+}
+
+@media (max-height: 800px) {
+
+    #all {
+    height: 90%;
+}
+
+    #ajSuppr,
+    #produits,
+    #categories,
+    #liste{
+        height: 80%;
+    }
+}
+
+@media (max-height: 700px) {
+
+    #all {
+    height: 90%;
+}
+
+    #ajSuppr,
+    #produits,
+    #categories,
+    #liste{
+        height: 80%;
+    }
+}
+
+@media (max-height: 600px) {
+
+    #all {
+    height: 90%;
+}
+
+    #ajSuppr,
+    #produits,
+    #categories,
+    #liste{
+        height: 78%;
+    }
+}
+
+@media (max-height: 500px) {
+
+    #all {
+    height: 88%;
+}
+
+    #ajSuppr,
+    #produits,
+    #categories,
+    #liste{
+        height: 70%;
+    }
+}
+
+@media (max-height: 400px) {
+
+    #all {
+    height: 80%;
+}
+
+    #ajSuppr,
+    #produits,
+    #categories,
+    #liste{
+        height: 60%;
+    }
+}
+
+@media print {
+
+    h1 {
+        color: black;
+        margin: none;
+    }
+
+    button, input {
+        display: none!important;
+    }
+
+    .tab {
+        display: none!important;
+    }
+
+    #listeDeCourse td {
+        color: black;
+        border-bottom: 1px solid #000000;
+        font-family: Architects Daughter;
+        font-size: 12px;
+        font-weight: bold;
+    }
+
+    #all {
+        height: 100%;
+        width: 100%;
+        border-radius: none;
+        box-shadow: none;
+        border: none;
+        background-color: none;
+        color: #000000;
+        margin: 0;
+        -webkit-app-region: drag;
+    }
+
+    #liste {
+        font-size: 14px!important;
+        -webkit-app-region: no-drag;
+        font-family: open;
+        overflow:hidden ;
+        height: 100%;
+        width: 100%;
+        box-shadow: none;
+        border: none;
+        border-radius: none;
+        margin-top: -40px;
+        overflow-x: hidden;
+        padding: none;
+        background: none;
+    }
+
+    #msgPdf {
+        display: none;
+    }
+
+    #listeDeCourse tr {
+        box-shadow: 0 0 0 transparent;
+    }
+
+    #listeDeCourse tfoot td {
+        padding-top: 15px;
+        font-weight: bolder;
+        font-size: 20px;
+    }
+
+    #containerListeDeCourse {
+        margin-top: -30px;
+    }
+
+    #listeDeCourse {
+        width: 100%;
+        text-shadow: 0 0 0 transparent;
+        border: none;
+		color: black;
+    }
+
+	.labCheck {
+		background: radial-gradient( rgba(162, 0, 0, 0), rgba(38, 0, 0, 0));
+		box-shadow: none;
+	}
+
+}

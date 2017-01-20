@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Gestion de courses</title>
+<!--
+    <link rel="stylesheet" href="css/styles.css">
+-->
+    <link rel="stylesheet" href="css/styles.min.css">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+
+
+</head>
+
+<body>
+
+    <div id="all">
+
+        <div id="btnsWin">
+            <button id="minimize" class="btnWin fa fa-window-minimize"></button>
+            <button id="maximize" class="btnWin fa fa-window-maximize"></button>
+            <button id="unmaximize" class="btnWin fa fa-window-restore"></button>
+            <button id="close" class="btnWin fa fa-window-close-o"></button>
+        </div>
+
+        <ul class="tab">
+            <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'categories')" id="li1">Catégories</a></li>
+            <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'ajSuppr')" id="li2">Ajout de produit</a></li>
+            <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'produits')" id="defaultOpen">Voir les produits</a></li>
+            <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'liste')" id="li3">Liste de courses</a></li>
+        </ul>
+
+        <div id="categories" class="tabcontent">
+            <h1 class="h1Titre">Categories</h1>
+
+            <div id="containerCategories">
+                <ul id="listeCategories">
+
+                </ul>
+            </div>
+
+            <h1 class="h1Titre">Ajouter une catégorie :</h1>
+
+            <form id="formCategorie">
+                <p>
+                    <label for="categorie">Catégorie :</label><br>
+                    <p id="aideCategorie"></p>
+                    <input type="text" name="categorie" id="categorie" class="inputText" placeholder="ex: Boites de conserve" required>
+                </p>
+                    <input type="submit" class="submit" value="Envoyer">
+
+            </form>
+
+            <h1 class="h1Titre">Supprimer ou modifier une catégorie :</h1>
+
+            <form id="formSupprCategorie">
+                <p>
+                    <select name="catego" id="selectCategoSuppr"></select>
+                </p>
+                <input type="text" class="inputText" id="inputModifCatego"><br><br>
+				<input type="submit" class="submit" id="subSupprCatego" value="Supprimer">
+				<button type="button" class="btnTab" id="btnModifCatego">Modifier</button>
+				<button type="button" class="btnTab" id="btnValidModifCatego">Valider la modification</button>
+				<button type="button" class="btnTab" id="btnAnnuleModifCatego">Annuler</button>
+
+            </form>
+
+
+        </div>
+
+        <div id="ajSuppr" class="tabcontent">
+            <h1 class="h1Titre">Ajout de produit :</h1>
+
+            <form id="formAjSuppr">
+                <p>
+                    <label for="prod">Produit :</label><br>
+                    <span id="aide"></span>
+                    <input type="text" name="prod" id="prod" class="inputText" placeholder="ex: Café" required>
+                </p>
+                <p>
+                    <label for="qte">Quantité :</label><br>
+                    <input type="number" name="qte" id="qte" class="inputText" placeholder="ex: 2">
+                    <span id="aide2"></span>
+                </p>
+                <p>
+                    <label for="prix">Prix à l'unité :</label><br>
+                    <input type="number" name="prix" id="prix" class="inputText" placeholder="ex: 1.9" step="0.01">
+                    <span id="aide3"></span>
+                </p>
+                <p>
+                    <label for="catego">Catégories :</label><br>
+                    <select name="catego" id="selectCatego"></select>
+                </p>
+                <p>
+                    <div>Cochez la case si vous voulez que la liste de courses vous indique ce produit.</div><br>
+                    <input type="checkbox" name="check" id="check" class="check">
+                    <label for="check" id="labCheck" class="labCheck"></label>
+                    <span id="aide4"></span>
+                </p>
+                <p id="transparent">
+                    <label for="qteRappel" id="labelQteRappel">A quelle quantité dans le stock voulez-vous que la liste de courses vous indique ce produit ?</label><br>
+                    <input type="number" name="qteRappel" id="qteRappel" class="inputText" placeholder="ex: 2">
+                    <span id="aide5"></span>
+                </p>
+
+                <p>
+                    <input type="submit" class="submit" value="Envoyer">
+                </p>
+            </form>
+        </div>
+
+        <div id="produits" class="tabcontent">
+            <h1 class="h1Titre">Voir les produits</h1>
+
+            <div id="containerAff"></div>
+
+            <table id="tableau">
+                <thead>
+                    <tr>
+                        <th>Nom
+                            <br>
+                            <br>
+                            <a class="logocroissantdecroissant" id="triNomInv" href="javascript:void(0)">
+                                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                            </a>
+                            <a class="logocroissantdecroissant" id="triNom" href="javascript:void(0)">
+                                <i class="fa fa-chevron-up" aria-hidden="true"></i>
+                            </a>
+                        </th>
+                        <th>Quantité
+                            <br>
+                            <button id="modifQte" class="btnTab fa fa-pencil"></button>
+                            <button id="validModifQte" class="btnTab fa fa-check"></button>
+                            <button id="cancelModifQte" class="btnTab fa fa-times"></button>
+                            <br>
+                            <a class="logocroissantdecroissant" id="triQteInv" href="javascript:void(0)">
+                                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                            </a>
+                            <a class="logocroissantdecroissant" id="triQte" href="javascript:void(0)">
+                                <i class="fa fa-chevron-up" aria-hidden="true"></i>
+                            </a>
+                        </th>
+                        <th>Prix ( € )
+                            <br>
+                            <br>
+                            <a class="logocroissantdecroissant" id="triPrixInv" href="javascript:void(0)">
+                                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                            </a>
+                            <a class="logocroissantdecroissant" id="triPrix" href="javascript:void(0)">
+                                <i class="fa fa-chevron-up" aria-hidden="true"></i>
+                            </a>
+                        </th>
+                        <th>Catégories
+                        <br>
+                            <br>
+                            <a class="logocroissantdecroissant" id="triCategoInv" href="javascript:void(0)">
+                                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                            </a>
+                            <a class="logocroissantdecroissant" id="triCatego" href="javascript:void(0)">
+                                <i class="fa fa-chevron-up" aria-hidden="true"></i>
+                            </a>
+                        </th>
+                        <th>Affichage dans
+                            <br> la liste de course</th>
+                        <th>Nb dans le stock
+                            <br>avant affichage
+                            <br> dans la liste de course</th>
+                        <th>Update/Suppr</th>
+                    </tr>
+                </thead>
+
+                <tbody id="tbody"></tbody>
+
+                <tfoot>
+                    <tr>
+                        <th>Nom
+                            <br>
+                            <br>
+                            <a class="logocroissantdecroissant" id="triNomInv2" href="javascript:void(0)">
+                                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                            </a>
+                            <a class="logocroissantdecroissant" id="triNom2" href="javascript:void(0)">
+                                <i class="fa fa-chevron-up" aria-hidden="true"></i>
+                            </a>
+                        </th>
+                        <th>Quantité
+                            <br>
+                            <br>
+                            <a class="logocroissantdecroissant" id="triQteInv2" href="javascript:void(0)">
+                                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                            </a>
+                            <a class="logocroissantdecroissant" id="triQte2" href="javascript:void(0)">
+                                <i class="fa fa-chevron-up" aria-hidden="true"></i>
+                            </a>
+                        </th>
+                        <th>Prix ( € )
+                            <br>
+                            <br>
+                            <a class="logocroissantdecroissant" id="triPrixInv2" href="javascript:void(0)">
+                                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                            </a>
+                            <a class="logocroissantdecroissant" id="triPrix2" href="javascript:void(0)">
+                                <i class="fa fa-chevron-up" aria-hidden="true"></i>
+                            </a>
+                        </th>
+                        <th>Catégories
+                        <br>
+                            <br>
+                            <a class="logocroissantdecroissant" id="triCategoInv2" href="javascript:void(0)">
+                                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                            </a>
+                            <a class="logocroissantdecroissant" id="triCatego2" href="javascript:void(0)">
+                                <i class="fa fa-chevron-up" aria-hidden="true"></i>
+                            </a>
+                        </th>
+                        <th>Affichage dans
+                            <br> la liste de course</th>
+                        <th>Nb dans le stock
+                            <br>avant affichage
+                            <br> dans la liste de course</th>
+                        <th>Update/Suppr</th>
+                    </tr>
+                </tfoot>
+            </table>
+
+        </div>
+
+        <div id="liste" class="tabcontent">
+            <h1 id="h1ListeDeCourse">Liste de courses</h1>
+
+            <div id="containerListeDeCourse">
+                <form id="formListe">
+                    <div id="submitListe">
+                        <input type="submit" class="submit" id="btnSubListe">
+                    </div>
+                    <table id="listeDeCourse">
+
+                        <tfoot>
+                            <td>Estimation du total :</td>
+                            <td></td>
+                            <td id="total"></td>
+                            <td></td>
+                        </tfoot>
+
+                    </table>
+                </form>
+
+            </div>
+
+            <div id="divBtnPdf">
+                <button id="printPdf" class="btnTab">Enregister la liste en PDF</button>
+                <p id="msgPdf"></p>
+            </div>
+
+        </div>
+
+<!--
+        <script src="javascript/db.js"></script>
+        <script src="javascript/functionTri.js"></script>
+        <script src="javascript/tableauProduits.js"></script>
+        <script src="javascript/ajSupprProduits.js"></script>
+        <script src="javascript/listeDeCourse.js"></script>
+        <script src="javascript/categories.js"></script>
+        <script src="javascript/onglets.js"></script>
+        <script src="javascript/btnControleWin.js"></script>
+-->
+
+<!--
+        <script src="javascript/allMin/allJs.js"></script>
+-->
+        <script src="javascript/allMin/allJs.min.js"></script>
+
+    </div>
+
+
+</body>
+
+</html>

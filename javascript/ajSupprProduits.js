@@ -1,6 +1,4 @@
-// TODO: [x]test.
-
-/*définition de variable*/
+/*définition de variables*/
 var formAjSuppr = document.getElementById("formAjSuppr"),
 	prod = document.getElementById("prod"),
 	qte = document.getElementById("qte"),

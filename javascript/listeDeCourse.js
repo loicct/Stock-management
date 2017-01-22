@@ -119,7 +119,6 @@ function creerListe(docs, i) {
 
 		/*Si les checkboxs sont cochées, la quantié d'achat est ajoutée à la quantité en stock dans la bdd*/
 		if (document.getElementById("listeCheck" + docs[i]._id).checked) {
-			console.log(docs[i].nom);
 			db.update({
 				_id: docs[i]._id
 			}, {
@@ -153,11 +152,12 @@ db.find({}, function (err, docs) {
 	/*Tri du tableau par catégories*/
 	docs.sort(triCatego);
 
-	/*Boucle qui additionne les prix pour en faire un total*/
+	/*Boucle qui vérifie si la quantité produit est inférieur ou égal à la quantité avant rappel*/
 	for (var i = 0; i < docs.length; i++) {
 		var result;
 		var comparer = docs[i].qte <= docs[i].qteRappel;
 
+		/*Si la quantité produit est inférieur ou égal à la quantité avant rappel, affichage du produit dans le tableau*/
 		if (comparer == true) {
 			containerListeDeCourse.appendChild(creerListe(docs, i));
 			var prix = parseFloat(docs[i].prix * docs[i].qteAchat);
@@ -165,6 +165,7 @@ db.find({}, function (err, docs) {
 		}
 	};
 
+	/*Affichage du total des prix*/
 	thTotal.textContent = total.toFixed(2) + " €";
 	thTotal.style.textAlign = "right";
 

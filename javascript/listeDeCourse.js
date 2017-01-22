@@ -1,17 +1,22 @@
-var listeDeCourse = document.getElementById('listeDeCourse');
-var thTotal = document.getElementById('total');
-var total = 0;
-var formListe = document.getElementById("formListe");
-var btnSubListe = document.getElementById("btnSubListe");
+/*définition de variables*/
+var listeDeCourse = document.getElementById('listeDeCourse'),
+	thTotal = document.getElementById('total'),
+	total = 0,
+	formListe = document.getElementById("formListe"),
+	btnSubListe = document.getElementById("btnSubListe"),
+	containerListeDeCourse = document.getElementById("containerListeDeCourse");
 
+/*Fonction qui crée le tableau de liste de course*/
 function creerListe(docs, i) {
 
+	/*Création des cellules "nom" du tableau*/
 	var celluleNom = document.createElement('td');
 	celluleNom.textContent = docs[i].nom;
 	celluleNom.id = "listeNom" + docs[i]._id;
-
+	/*Création des cellules "quantité d'achat" du tableau*/
 	var celluleQteAchat = document.createElement('td');
 	celluleQteAchat.id = "celluleQteAchat";
+	/*Création des boutons + et - pour ajouter et diminuer la quantité d'achat*/
 	var btnPlus = document.createElement('button');
 	btnPlus.textContent = "";
 	btnPlus.className = "btnListe fa fa-plus";
@@ -20,14 +25,18 @@ function creerListe(docs, i) {
 	var btnMoins = document.createElement('button');
 	btnMoins.className = "btnListe fa fa-minus";
 	btnMoins.textContent = "";
+	/*Ajout des boutons + et - et du label contenant la quantité aux cellules "quantité d'achat"*/
 	celluleQteAchat.appendChild(btnMoins);
 	celluleQteAchat.appendChild(textLabel);
 	celluleQteAchat.appendChild(btnPlus);
 
+	/*Convertit la chaîne de caractère quantité d'achat de la bdd en entier*/
 	var qteAchat = parseInt(docs[i].qteAchat);
 
+	/*Fonction lors du clique bouton +*/
 	btnPlus.addEventListener("click", function () {
 
+		/*Ajoute 1 à la quantité d'achat*/
 		db.update({
 			_id: docs[i]._id
 		}, {
@@ -42,8 +51,10 @@ function creerListe(docs, i) {
 
 	}, false);
 
+	/*Fonction lors du clique bouton +*/
 	btnMoins.addEventListener("click", function () {
 
+		/*Enlève 1 à la quantité d'achat*/
 		db.update({
 			_id: docs[i]._id
 		}, {
@@ -58,12 +69,14 @@ function creerListe(docs, i) {
 
 	}, false);
 
+	/*Création des cellules "prix" du tableau*/
 	var cellulePrix = document.createElement('td');
 	cellulePrix.textContent = (docs[i].prix * docs[i].qteAchat).toFixed(2) + " €";
 	cellulePrix.style.textAlign = "right";
 	cellulePrix.style.paddingRight = "10px";
 	cellulePrix.style.width = "200px";
 
+	/*Création des cellules de checkbox du tableau*/
 	var celluleCoche = document.createElement('td');
 	celluleCoche.id = "celluleCoche";
 	var formCheck = document.createElement('input');
@@ -77,9 +90,10 @@ function creerListe(docs, i) {
 	celluleCoche.appendChild(formCheck);
 	celluleCoche.appendChild(formLabel);
 
+	/*Fonction lors du clique checkbox*/
 	formCheck.addEventListener("click", function () {
 
-
+		/*Si la checkbox est coché, le nom du produit devient rouge et barré et les boutons + et - sont désactivés*/
 		if (document.getElementById("listeCheck" + docs[i]._id).checked) {
 			document.getElementById("listeNom" + docs[i]._id).style.color = "red";
 			document.getElementById("listeNom" + docs[i]._id).style.textDecoration = "line-through";
@@ -87,7 +101,7 @@ function creerListe(docs, i) {
 			btnPlus.style.color = "#aaaaaa";
 			btnMoins.disabled = true;
 			btnPlus.disabled = true;
-		} else {
+		} else /*Sinon retour à la normal*/ {
 			document.getElementById("listeNom" + docs[i]._id).style.color = "#ccc";
 			document.getElementById("listeNom" + docs[i]._id).style.textDecoration = "none";
 			btnMoins.style.color = "black";
@@ -98,9 +112,12 @@ function creerListe(docs, i) {
 
 	}, false);
 
+	/*Fonction lors du clique submit "Valider"*/
 	formListe.addEventListener("submit", function (e) {
+
 		e.preventDefault();
 
+		/*Si les checkboxs sont cochées, la quantié d'achat est ajoutée à la quantité en stock dans la bdd*/
 		if (document.getElementById("listeCheck" + docs[i]._id).checked) {
 			console.log(docs[i].nom);
 			db.update({
@@ -118,27 +135,26 @@ function creerListe(docs, i) {
 
 	});
 
+	/*Création des ligne de tableau 'tr'*/
 	var ligneTab = document.createElement('tr');
 	ligneTab.appendChild(celluleNom);
 	ligneTab.appendChild(celluleQteAchat);
 	ligneTab.appendChild(cellulePrix);
 	ligneTab.appendChild(celluleCoche);
 
-	ligneTotal = document.createElement('tr');
-
 	listeDeCourse.appendChild(ligneTab);
 
 	return (listeDeCourse);
 }
 
-var containerListeDeCourse = document.getElementById("containerListeDeCourse");
-
+/*Fonction de l'affichage de l'ensemble du tableau*/
 db.find({}, function (err, docs) {
 
+	/*Tri du tableau par catégories*/
 	docs.sort(triCatego);
 
+	/*Boucle qui additionne les prix pour en faire un total*/
 	for (var i = 0; i < docs.length; i++) {
-
 		var result;
 		var comparer = docs[i].qte <= docs[i].qteRappel;
 
@@ -154,14 +170,19 @@ db.find({}, function (err, docs) {
 
 });
 
-const ipc = require('electron').ipcRenderer
 
-const printPdf = document.getElementById('printPdf')
+/*Imprimer un fichier PDF avec electron*/
 
+
+const ipc = require('electron').ipcRenderer,
+	printPdf = document.getElementById('printPdf');
+
+/*Fonction lors du clique bouton "Enregistrer la liste en pdf"*/
 printPdf.addEventListener('click', function (event) {
 	ipc.send('print-to-pdf')
 })
 
+/*Fonction qui imprime le pdf*/
 ipc.on('wrote-pdf', function (event, path) {
 	const message = `Enregistrement du PDF ici : ${path}`
 	document.getElementById('msgPdf').innerHTML = message

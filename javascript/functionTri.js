@@ -1,3 +1,5 @@
+/*Les fonctions pour le tri par ordre alphabétique ou par quantité*/
+
 function triNom(a, b) {
     if (a.nom < b.nom) return -1;
     else if (a.nom == b.nom) return 0;
@@ -45,6 +47,9 @@ function triCategoInv(a, b) {
     else if (a.categorie == b.categorie) return 0;
     else return -1;
 }
+
+
+/*Fonction qui assigne les fonctions tri ci-dessus au icons du tableau "Voir les produits"*/
 
 function globalTri(docs) {
     document.getElementById('triNom').addEventListener("click", function () {

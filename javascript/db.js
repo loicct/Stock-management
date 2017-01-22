@@ -1,11 +1,11 @@
+/*Création des bases de données NeDb*/
+
 var Datastore = require('nedb'),
     db = new Datastore({
         filename: 'db/produits.json',
         autoload: true
-    });
-
-var Datastore = require('nedb'),
-    dbCategories = new Datastore({
+    }),
+	dbCategories = new Datastore({
         filename: 'db/categories.json',
         autoload: true
     });

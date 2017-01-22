@@ -83,7 +83,6 @@ html, body {
 }
 
 #all {
-/*    width: 90%;*/
     height: 93%;
     border-radius: 20px;
     box-shadow: 3px 3px 15px 5px rgba(0, 0, 0, 0.49), 0 0 15px 5px rgba(0, 0, 0, 0.53) inset;
@@ -107,17 +106,11 @@ h1 {
     margin: 1% 0 1% 0;
 }
 
-.tab,
-#ajSuppr,
-#produits,
-#categories {
+.tab, #ajSuppr, #produits, #categories {
     font-family: open;
 }
 
-#ajSuppr,
-#produits,
-#categories,
-#liste {
+#ajSuppr, #produits, #categories, #liste {
     -webkit-app-region: no-drag;
     font-family: open;
     overflow: scroll;
@@ -423,10 +416,7 @@ button:disabled {
     height: 90%;
 }
 
-    #ajSuppr,
-    #produits,
-    #categories,
-    #liste{
+    #ajSuppr, #produits, #categories, #liste{
         height: 80%;
     }
 }
@@ -437,10 +427,7 @@ button:disabled {
     height: 90%;
 }
 
-    #ajSuppr,
-    #produits,
-    #categories,
-    #liste{
+    #ajSuppr, #produits, #categories, #liste{
         height: 80%;
     }
 }
@@ -451,10 +438,7 @@ button:disabled {
     height: 90%;
 }
 
-    #ajSuppr,
-    #produits,
-    #categories,
-    #liste{
+    #ajSuppr, #produits, #categories, #liste{
         height: 78%;
     }
 }
@@ -465,10 +449,7 @@ button:disabled {
     height: 88%;
 }
 
-    #ajSuppr,
-    #produits,
-    #categories,
-    #liste{
+    #ajSuppr, #produits, #categories, #liste{
         height: 70%;
     }
 }
@@ -479,10 +460,7 @@ button:disabled {
     height: 80%;
 }
 
-    #ajSuppr,
-    #produits,
-    #categories,
-    #liste{
+    #ajSuppr, #produits, #categories, #liste{
         height: 60%;
     }
 }

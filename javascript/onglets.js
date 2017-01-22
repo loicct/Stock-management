@@ -1,3 +1,5 @@
+/*Script pour l'affichage des onglets*/
+
 function openTab(evt, tabName) {
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");

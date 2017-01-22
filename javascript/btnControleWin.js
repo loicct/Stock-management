@@ -1,3 +1,5 @@
+/*Script pour les boutons de controle de fenêtre, petits bugs à cause de la transparence de la fenêtre dans le main.js*/
+
 const remote = require('electron').remote;
 const current_window = remote.getCurrentWindow();
 
@@ -16,6 +18,9 @@ document.getElementById("maximize").addEventListener("click", function (e) {
 document.getElementById("unmaximize").addEventListener("click", function (e) {
     current_window.unmaximize();
 });
+
+
+/*Script Alternatif pour le controle de fenêtre, ne fonctionne pas à cause de la transparence de la fenêtre dans le main.js(bug d'electron)*/
 
 /*(function () {
 

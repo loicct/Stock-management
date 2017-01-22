@@ -1,3 +1,6 @@
+
+/*Polices*/
+
 @font-face {
     font-family: 'open';
     src: url('../fonts/open-sans/OpenSans-SemiBold.ttf');
@@ -26,11 +29,8 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
 }
 
-/*
-html {
-    height: 100%;
-}
-*/
+
+/*ScrollBar*/
 
 body ::-webkit-scrollbar {
 	width: 14px;
@@ -56,6 +56,23 @@ body ::-webkit-scrollbar-thumb:hover {
     background-color: #bdcae2;
 }
 
+
+/*Boutons fenêtre*/
+
+#btnsWin {
+    position: relative;
+    top: 5px;
+    right: 5px;
+    float: right;
+}
+
+#btnsWin button {
+    margin-left: 5px;
+}
+
+
+/*Fenêtre, réglage général*/
+
 html, body {
     background-color: transparent;
     width: 100%;
@@ -76,66 +93,6 @@ html, body {
     margin: 15px 20px 15px 20px;
     -webkit-app-region: drag;
 
-}
-
-#btnsWin {
-    position: relative;
-    top: 5px;
-    right: 5px;
-    float: right;
-}
-
-#btnsWin button {
-    margin-left: 5px;
-}
-
-ul.tab {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
-
-ul.tab li {
-    display: flex;
-    justify-content: center;
-    background-color: #242424;
-    -webkit-app-region: no-drag;
-}
-
-ul.tab li a {
-    display: inline-block;
-    color: #ccc;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    transition: 0.3s;
-    font-size: 17px;
-    border: 3px solid #ccc;
-    transition: .5s;
-}
-
-#li1, #li2 {
-    border-right: none;
-}
-
-#li3 {
-    border-left: none;
-}
-
-ul.tab li a:hover {
-    background-color: #4f526c;
-    transition: .5s;
-}
-
-ul.tab li a:focus,
-.active {
-    background-color: #36353b;
-    border-bottom: 1px solid transparent!important;
-    transition: .5s;
 }
 
 h1 {
@@ -178,99 +135,6 @@ h1 {
     text-align: center;
 }
 
-#divBtnPdf {
-    text-align: center;
-    margin-top: 20px;
-}
-
-#tableau {
-    border-collapse: collapse;
-    width: 95%;
-    margin: auto;
-    border: 2px solid;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.30), 0 0 2px 3px rgba(0, 0, 0, 0.15);
-}
-
-/*
-th {
-    border-radius: 20px;
-    border: 2px solid #555555;
-}
-*/
-
-#tableau th {
-    background: linear-gradient(#313131 , #242424);
-    border-right: 2px solid #36353b;
-    padding: 1% 1% 1% 1%;
-    font-family: exo;
-    font-weight: bolder;
-}
-
-#tableau td {
-    background: linear-gradient(#54525a , #424148);
-    border: 2px solid #36353b;
-    padding: .5% .5% .5% .5%;
-    color: aliceblue;
-    text-shadow: 2px 2px 1px #36353b;
-}
-
-#h1ListeDeCourse {
-    font-family: alexbrush;
-    font-size: 50px;
-}
-
-#listeDeCourse {
-    border-collapse: collapse;
-    width: 95%;
-    color: #cccccc;
-    margin: auto;
-    text-shadow: 1px 1px 1px #131315;
-}
-
-#listeDeCourse td {
-    border-bottom: 2px solid #66666f;
-    border-right-color: rgba(240, 248, 255, 0);
-    border-left-color: rgba(240, 248, 255, 0);
-    font-family: Architects Daughter;
-    font-size: 25px;
-    font-weight: bold;
-    padding: 1% 0 0 0;
-}
-
-#listeDeCourse tr {
-    box-shadow: 0 8px 6px -6px black;
-}
-
-.logocroissantdecroissant {
-    text-decoration: none;
-    /*    margin-left: 10%;*/
-    font-size: 100%;
-    color: #59b9ff;
-    /*    float: right;*/
-}
-
-button:disabled {
-    background-color: #242424;
-    text-decoration: none;
-    border: 1px solid #c4c4c4;
-}
-
-#listeDeCourse tfoot td {
-    padding-top: 3%;
-    font-weight: bolder;
-    font-size: 35px;
-}
-
-#aideCategorie, #aide {
-    color: red;
-}
-
-#listeCategories {
-    list-style: none;
-}
-
 button, input, select {
     background-color: #343434;
     color: #a0a0a0;
@@ -281,43 +145,6 @@ button, input, select {
     font-size: 1.2em;
     border: none;
     padding: 8px;
-    color: #000000;
-    background: linear-gradient( #727272, #575656);
-    font-family: open;
-    text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.2);
-    border-radius: 8px;
-    box-shadow: 0 0 5px rgba( 0, 0, 0, 0.5), -1px -1px 0 rgba( 255, 255, 255, 0.4);
-    transition: .5s;
-}
-
-#submitListe {
-    text-align: center;
-}
-
-#modifQte {
-    margin: 10px 0;
-    padding: 8px 20px;
-    color: #00d8ff;
-}
-
-#cancelModifQte {
-    display: none;
-    margin: 10px 0;
-    padding: 8px 20px;
-    color: #ff0000;
-}
-
-#validModifQte {
-    display: none;
-    margin: 10px 0;
-    padding: 8px 20px;
-    color: #00ff00;
-}
-
-.btnListe {
-    font-size: 0.5em;
-    border: none;
-    padding: 0 5px;
     color: #000000;
     background: linear-gradient( #727272, #575656);
     font-family: open;
@@ -403,6 +230,193 @@ select {
     background-color: #00ff13;
 }
 
+#aideCategorie, #aide {
+    color: red;
+}
+
+#divBtnPdf {
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+/*Onglets*/
+
+ul.tab {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+ul.tab li {
+    display: flex;
+    justify-content: center;
+    background-color: #242424;
+    -webkit-app-region: no-drag;
+}
+
+ul.tab li a {
+    display: inline-block;
+    color: #ccc;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 17px;
+    border: 3px solid #ccc;
+    transition: .5s;
+}
+
+#li1, #li2 {
+    border-right: none;
+}
+
+#li3 {
+    border-left: none;
+}
+
+ul.tab li a:hover {
+    background-color: #4f526c;
+    transition: .5s;
+}
+
+ul.tab li a:focus,
+.active {
+    background-color: #36353b;
+    border-bottom: 1px solid transparent!important;
+    transition: .5s;
+}
+
+
+/*"Voir les produits"*/
+
+#tableau {
+    border-collapse: collapse;
+    width: 95%;
+    margin: auto;
+    border: 2px solid;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.30), 0 0 2px 3px rgba(0, 0, 0, 0.15);
+}
+
+#tableau th {
+    background: linear-gradient(#313131 , #242424);
+    border-right: 2px solid #36353b;
+    padding: 1% 1% 1% 1%;
+    font-family: exo;
+    font-weight: bolder;
+}
+
+#tableau td {
+    background: linear-gradient(#54525a , #424148);
+    border: 2px solid #36353b;
+    padding: .5% .5% .5% .5%;
+    color: aliceblue;
+    text-shadow: 2px 2px 1px #36353b;
+}
+
+.logocroissantdecroissant {
+    text-decoration: none;
+    /*    margin-left: 10%;*/
+    font-size: 100%;
+    color: #59b9ff;
+    /*    float: right;*/
+}
+
+button:disabled {
+    background-color: #242424;
+    text-decoration: none;
+    border: 1px solid #c4c4c4;
+}
+
+#modifQte {
+    margin: 10px 0;
+    padding: 8px 20px;
+    color: #00d8ff;
+}
+
+#cancelModifQte {
+    display: none;
+    margin: 10px 0;
+    padding: 8px 20px;
+    color: #ff0000;
+}
+
+#validModifQte {
+    display: none;
+    margin: 10px 0;
+    padding: 8px 20px;
+    color: #00ff00;
+}
+
+
+/*"Liste de course*/
+
+#h1ListeDeCourse {
+    font-family: alexbrush;
+    font-size: 50px;
+}
+
+#listeDeCourse {
+    border-collapse: collapse;
+    width: 95%;
+    color: #cccccc;
+    margin: auto;
+    text-shadow: 1px 1px 1px #131315;
+}
+
+#listeDeCourse td {
+    border-bottom: 2px solid #66666f;
+    border-right-color: rgba(240, 248, 255, 0);
+    border-left-color: rgba(240, 248, 255, 0);
+    font-family: Architects Daughter;
+    font-size: 25px;
+    font-weight: bold;
+    padding: 1% 0 0 0;
+}
+
+#listeDeCourse tr {
+    box-shadow: 0 8px 6px -6px black;
+}
+
+#listeDeCourse tfoot td {
+    padding-top: 3%;
+    font-weight: bolder;
+    font-size: 35px;
+}
+
+#submitListe {
+    text-align: center;
+}
+
+.btnListe {
+    font-size: 0.5em;
+    border: none;
+    padding: 0 5px;
+    color: #000000;
+    background: linear-gradient( #727272, #575656);
+    font-family: open;
+    text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba( 0, 0, 0, 0.5), -1px -1px 0 rgba( 255, 255, 255, 0.4);
+    transition: .5s;
+}
+
+
+/*"Catégories"*/
+
+#listeCategories {
+    list-style: none;
+}
+
+
+/*Media queries*/
+
 @media (max-height: 800px) {
 
     #all {
@@ -472,6 +486,9 @@ select {
         height: 60%;
     }
 }
+
+
+/*Media print (impression en pdf)*/
 
 @media print {
 

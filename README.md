@@ -2,8 +2,6 @@
 
 Logiciel de gestion de stock pour particulier.
 
-Pour la modification, faire attention si l'index.html n'est pas redirigé sur les fichiers "min" de js et css. (en fonction des commit/pull)
-
 - requis : NodeJS
 
 - Installation des dépendances (dans le terminal et dans le bon dossier) : npm install

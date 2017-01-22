@@ -14,6 +14,7 @@
 
     <div id="all">
 
+		<!--div des boutons de fenêtres-->
         <div id="btnsWin">
             <button id="minimize" class="btnWin fa fa-window-minimize"></button>
             <button id="maximize" class="btnWin fa fa-window-maximize"></button>
@@ -21,6 +22,7 @@
             <button id="close" class="btnWin fa fa-window-close-o"></button>
         </div>
 
+		<!--div des onglets-->
         <ul class="tab">
             <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'categories')" id="li1">Catégories</a></li>
             <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'ajSuppr')" id="li2">Ajout de produit</a></li>
@@ -28,6 +30,7 @@
             <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'liste')" id="li3">Liste de courses</a></li>
         </ul>
 
+		<!--div de l'onglet "Catégorie"-->
         <div id="categories" class="tabcontent">
             <h1 class="h1Titre">Categories</h1>
 
@@ -66,6 +69,7 @@
 
         </div>
 
+		<!--div de l'onglet "Ajout de produit"-->
         <div id="ajSuppr" class="tabcontent">
             <h1 class="h1Titre">Ajout de produit :</h1>
 
@@ -107,6 +111,7 @@
             </form>
         </div>
 
+		<!--div de l'onglet "Voir les produits"-->
         <div id="produits" class="tabcontent">
             <h1 class="h1Titre">Voir les produits</h1>
 
@@ -223,6 +228,7 @@
 
         </div>
 
+		<!--div de l'onglet "Liste de courses"-->
         <div id="liste" class="tabcontent">
             <h1 id="h1ListeDeCourse">Liste de courses</h1>
 
@@ -254,6 +260,7 @@
 
     </div>
 
+	<!--script javascript-->
 	<script src="javascript/db.js"></script>
 	<script src="javascript/functionTri.js"></script>
 	<script src="javascript/tableauProduits.js"></script>

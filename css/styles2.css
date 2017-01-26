@@ -56,23 +56,40 @@ body ::-webkit-scrollbar-thumb:hover {
     background-color: #bdcae2;
 }
 
+
+/*Boutons fenêtre*/
+
+#btnsWin {
+    position: relative;
+    top: 5px;
+    right: 5px;
+    float: right;
+}
+
+#btnsWin button {
+    margin-left: 5px;
+}
+
+
 /*Fenêtre, réglage général*/
 
 html, body {
     background-color: transparent;
     width: 100%;
     height: 100%;
+    overflow: hidden;
     margin: 0;
     padding: 0;
 }
 
 #all {
-    height: 100%;
-    box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.53) inset;
+    height: 93%;
+    border-radius: 20px;
+    box-shadow: 3px 3px 15px 5px rgba(0, 0, 0, 0.49), 0 0 15px 5px rgba(0, 0, 0, 0.53) inset;
+    border: 10px double black;
     background-color: #36353b;
     color: #a0a0a0;
-	margin: 0;
-	padding: 0;
+    margin: 15px 20px 15px 20px;
     -webkit-app-region: drag;
 
 }
@@ -102,7 +119,7 @@ h1 {
     border: 5px solid rgb(21, 20, 29);
     border-radius: 10px;
     margin: 20px;
-/*    overflow-x: hidden;*/
+    overflow-x: hidden;
     padding-bottom: 15px;
     background: linear-gradient(#59575f , #36353b);
 }
@@ -218,10 +235,6 @@ select {
 
 /*Onglets*/
 
-#menu {
-	display: none;
-}
-
 ul.tab {
     list-style-type: none;
     margin: 0;
@@ -271,12 +284,6 @@ ul.tab li a:focus,
     transition: .5s;
 }
 
-/*
-#tab {
-	position: relative;
-	display: flex!important;
-}
-*/
 
 /*"Voir les produits"*/
 
@@ -403,191 +410,59 @@ button:disabled {
 
 /*Media queries*/
 
-@media (max-width: 800px) {
+@media (max-height: 800px) {
 
     #all {
-		height: 100%;
-	}
-
-    #ajSuppr, #produits, #categories, #liste{
-        height: 90%;
-    }
-
-	#tab {
-		position: absolute;
-	}
-
-	ul.tab {
-		list-style-type: none;
-		margin: 0;
-		padding: 0;
-		overflow: hidden;
-		display:inline ;
-		width: 100%;
-	}
-
-	ul.tab li {
-		display: flex;
-		justify-content: center;
-		width: 100%;
-		background-color: #242424;
-		-webkit-app-region: no-drag;
-	}
-
-	ul.tab li a {
-		display: inline;
-		color: #ccc;
-		width: 100%;
-		text-align: center;
-		padding: 14px 16px;
-		text-decoration: none;
-		transition: 0.3s;
-		font-size: 17px;
-		border: none;
-		transition: .5s;
-	}
-
-	ul.tab li a:hover {
-		background-color: #4f526c;
-		transition: .5s;
-	}
-
-	ul.tab li a:focus,
-	.active {
-		background-color: #36353b;
-		border-bottom: 1px solid transparent!important;
-		transition: .5s;
-	}
-
-	/*.desactive {
-		display: none;
-	}*/
-
-	#menu {
-		display: inline;
-	}
-
-	#tab {
-		display: none;
-	}
-
-	#tab:focus{
-		display: inline;
-	}
+    height: 90%;
 }
 
-@media (max-width: 650px) {
+    #ajSuppr, #produits, #categories, #liste{
+        height: 80%;
+    }
+}
 
-	h1 {
-		display: none;
-	}
+@media (max-height: 700px) {
 
     #all {
-		height: 100%;
-	}
+    height: 90%;
+}
 
     #ajSuppr, #produits, #categories, #liste{
-		-webkit-app-region: no-drag;
-		font-family: open;
-		overflow: scroll;
-		height: 90%;
-		box-shadow: 0 0 30px 2px rgba(52, 40, 23, 0.5) inset;
-		border: none;
-		border-radius: 0;
-		margin: 0;
-	/*    overflow-x: hidden;*/
-		padding-bottom: 15px;
-		background: linear-gradient(#59575f , #36353b);
+        height: 80%;
     }
+}
 
-	ul.tab {
-		list-style-type: none;
-		margin: 0;
-		padding: 0;
-		overflow: hidden;
-		display:inline ;
-		width: 100%;
-	}
+@media (max-height: 600px) {
 
-	ul.tab li {
-		display: flex;
-		justify-content: center;
-		width: 100%;
-		background-color: #242424;
-		-webkit-app-region: no-drag;
-	}
+    #all {
+    height: 90%;
+}
 
-	ul.tab li a {
-		display: inline;
-		color: #ccc;
-		width: 100%;
-		text-align: center;
-		padding: 14px 16px;
-		text-decoration: none;
-		transition: 0.3s;
-		font-size: 17px;
-		border: none;
-		transition: .5s;
-	}
+    #ajSuppr, #produits, #categories, #liste{
+        height: 78%;
+    }
+}
 
-	ul.tab li a:hover {
-		background-color: #4f526c;
-		transition: .5s;
-	}
+@media (max-height: 500px) {
 
-	ul.tab li a:focus,
-	.active {
-		background-color: #36353b;
-		border-bottom: 1px solid transparent!important;
-		transition: .5s;
-	}
+    #all {
+    height: 88%;
+}
 
-	#listeDeCourse td {
-		border-bottom: 2px solid #66666f;
-		border-right-color: rgba(240, 248, 255, 0);
-		border-left-color: rgba(240, 248, 255, 0);
-		font-family: open;
-		font-size: 15px;
-		font-weight: bold;
-		padding: 1% 2% 0 0;
-	}
+    #ajSuppr, #produits, #categories, #liste{
+        height: 70%;
+    }
+}
 
-	#tableau th {
-		background: linear-gradient(#313131 , #242424);
-		border-right: 2px solid #36353b;
-		padding: 0;
-		font-family: exo;
-		font-weight: bolder;
-	}
-	#tableau {
-		border-radius: 0;
-		text-align: center;
-	}
+@media (max-height: 400px) {
 
-	#tableau td {
-		background: linear-gradient(#54525a , #424148);
-		border: none;
-		padding: 5px 0;
-		color: aliceblue;
-		text-shadow: 2px 2px 1px #36353b;
-		display:block;
-	}
+    #all {
+    height: 80%;
+}
 
-	.desactive {
-		display: none;
-	}
-
-	#menu {
-		display: inline;
-	}
-
-	#tab {
-		display: none;
-	}
-
-	#tab:focus{
-		display: inline;
-	}
+    #ajSuppr, #produits, #categories, #liste{
+        height: 60%;
+    }
 }
 
 

@@ -11,8 +11,8 @@ function createWindow() {
     win = new BrowserWindow({
         width: 1200,
         height: 800,
-        transparent: true,
-        frame: false,
+        /*transparent: true,
+        frame: false,*/
         icon: path.join(__dirname, 'icons/Fasticon-Shop-Cart-Shop-cart.ico'),
     })
 

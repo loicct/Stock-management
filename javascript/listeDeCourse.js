@@ -74,7 +74,7 @@ function creerListe(docs, i) {
 	cellulePrix.textContent = (docs[i].prix * docs[i].qteAchat).toFixed(2) + " €";
 	cellulePrix.style.textAlign = "right";
 	cellulePrix.style.paddingRight = "10px";
-	cellulePrix.style.width = "200px";
+	cellulePrix.style.width = "100px";
 
 	/*Création des cellules de checkbox du tableau*/
 	var celluleCoche = document.createElement('td');

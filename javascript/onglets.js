@@ -14,4 +14,14 @@ function openTab(evt, tabName) {
     evt.currentTarget.className += " active";
 }
 
+document.getElementById('menu').addEventListener("click", function () {
+
+	if (document.getElementById('tab').style.display == "inline") {
+		document.getElementById('tab').style.display = "none";
+	} else {
+		document.getElementById('tab').style.display = "inline";
+	}
+
+}, false);
+
 document.getElementById("defaultOpen").click();

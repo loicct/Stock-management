@@ -15,19 +15,19 @@ function creerTableau(docs, i) {
     var celluleQte = document.createElement('td');
     celluleQte.id = "qte" + docs[i]._id;
     celluleQte.textContent = docs[i].qte;
-    celluleQte.style.textAlign = "right";
+    //celluleQte.style.textAlign = "right";
 
 	/*Création des cellules prix*/
     var cellulePrix = document.createElement('td');
     cellulePrix.id = "prix" + docs[i]._id;
-    cellulePrix.textContent = docs[i].prix;
-    cellulePrix.style.textAlign = "right";
+    cellulePrix.textContent = docs[i].prix + " €";
+    //cellulePrix.style.textAlign = "right";
 
 	/*Création des cellules catégorie*/
     var celluleCatego = document.createElement('td');
     celluleCatego.id = "catego" + docs[i]._id;
     celluleCatego.textContent = docs[i].categorie;
-    celluleCatego.style.textAlign = "right";
+    //celluleCatego.style.textAlign = "right";
 
 	/*Si la cellule catégorie est vide, elle affichera "Non répertorié"*/
     if (celluleCatego.textContent == ""){
@@ -39,13 +39,13 @@ function creerTableau(docs, i) {
     var celluleCheck = document.createElement('td');
     celluleCheck.id = "check" + docs[i]._id;
     celluleCheck.textContent = docs[i].check;
-    celluleCheck.style.textAlign = "right";
+    //celluleCheck.style.textAlign = "right";
 
 	/*Création des cellules pour la quantité avant rappel dans la liste de course*/
     var celluleQteRappel = document.createElement('td');
     celluleQteRappel.id = "qteRappel" + docs[i]._id;
     celluleQteRappel.textContent = docs[i].qteRappel;
-    celluleQteRappel.style.textAlign = "right";
+    //celluleQteRappel.style.textAlign = "right";
 
 	/*Création du bouton de modification de produit*/
     var btnUpdate = document.createElement('button');
@@ -127,6 +127,16 @@ function creerTableau(docs, i) {
     inputQte.value = docs[i].qte;
     inputQte.style.margin = "0";
     inputQte.style.color = "#a50000";
+
+	if (window.matchMedia("(max-width: 650px)").matches) {
+		document.getElementById("qte" + docs[i]._id).innerHTML = "Quantité(s) : " + docs[i].qte;
+		document.getElementById("check" + docs[i]._id).innerHTML = "Affichage liste de course : " + docs[i].check;
+		document.getElementById("qteRappel" + docs[i]._id).innerHTML = "Quantité(s) avant rappel : " + docs[i].qteRappel;
+	} else {
+		document.getElementById("qte" + docs[i]._id).innerHTML = docs[i].qte;
+		document.getElementById("check" + docs[i]._id).innerHTML = docs[i].check;
+		document.getElementById("qteRappel" + docs[i]._id).innerHTML = docs[i].qteRappel;
+	}
 
 	/*Définition des variables de boutons pour la modif de toutes les quantités*/
 	var	modifAllQte = document.getElementById("modifQte"),
@@ -409,6 +419,5 @@ db.find({}, function (err, docs) {
         if (docs[i].categorie == "Non répertorié") {
             document.getElementById("catego" + docs[i]._id).style.color = "red";
         }
-
     };
 });
